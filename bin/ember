@@ -30,8 +30,7 @@ logger.info('Resolved "ember-cli" to %j', projectLocalCli);
 // Load `ember-cli` either from the project-local path, or if it could not
 // be resolved use the global version
 logger.info('Loading "ember-cli"...');
-import localCli from projectLocalCli || "../lib/cli";
-import cli from cliPath;
+const cli = import(projectLocalCli || "..lib/cli");
 
 logger.info('Starting "ember-cli"...');
 cli({
