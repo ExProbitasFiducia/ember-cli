@@ -1,4 +1,4 @@
-#!/usr/bin/env/node --experimental-modules
+#!/usr/bin/env node --experimental-modules
 
 'use strict';
 
@@ -30,7 +30,7 @@ logger.info('Resolved "ember-cli" to %j', projectLocalCli);
 // Load `ember-cli` either from the project-local path, or if it could not
 // be resolved use the global version
 logger.info('Loading "ember-cli"...');
-const cli = import(projectLocalCli || "..lib/cli");
+const cli = import(projectLocalCli || "../lib/cli");
 
 logger.info('Starting "ember-cli"...');
 cli({
