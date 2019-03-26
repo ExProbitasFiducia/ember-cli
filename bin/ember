@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env/node --experimental-modules
+
 'use strict';
 
 // This file is intentionally left compatible with older versions of
@@ -10,10 +11,11 @@
 // Provide a title to the process in `ps`
 process.title = 'ember';
 
-var resolve = require('resolve');
-var logger = require('heimdalljs-logger')('ember-cli:bin');
+//var resolve = require('resolve');
+import heimdall from 'heimdalljs-logger';
+const logger = heimdall('ember-cli:bin');
 
-var basedir = process.cwd();
+const basedir = process.cwd();
 logger.info('Resolving "ember-cli" from %j...', basedir);
 
 var projectLocalCli;
@@ -28,7 +30,8 @@ logger.info('Resolved "ember-cli" to %j', projectLocalCli);
 // Load `ember-cli` either from the project-local path, or if it could not
 // be resolved use the global version
 logger.info('Loading "ember-cli"...');
-var cli = require(projectLocalCli || '../lib/cli');
+import localCli from projectLocalCli || "../lib/cli";
+import cli from cliPath;
 
 logger.info('Starting "ember-cli"...');
 cli({
