@@ -12,8 +12,7 @@
 process.title = 'ember';
 
 //var resolve = require('resolve');
-import heimdall from 'heimdalljs-logger';
-const logger = heimdall('ember-cli:bin');
+const logger = require('heimdalljs-logger')('ember-cli:bin');
 
 const basedir = process.cwd();
 logger.info('Resolving "ember-cli" from %j...', basedir);
@@ -30,7 +29,7 @@ logger.info('Resolved "ember-cli" to %j', projectLocalCli);
 // Load `ember-cli` either from the project-local path, or if it could not
 // be resolved use the global version
 logger.info('Loading "ember-cli"...');
-const cli = import(projectLocalCli || "../lib/cli");
+const cli = require(projectLocalCli || "../lib/cli");
 
 logger.info('Starting "ember-cli"...');
 cli({
